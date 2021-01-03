@@ -5,6 +5,7 @@ contract ConsumerData {
 
     struct Consumer {
         uint id;
+        uint aId;
         string name;
         uint age;
         bool vaccinated;
@@ -14,26 +15,50 @@ contract ConsumerData {
 
     event ConsumerAdded(
         uint id,
+        uint aId,
         string name,
         uint age,
         bool vaccinated
     );
 
-    function AddConsumer(string memory _name, uint _age) public {
-        consCount ++;
-        consumers[consCount] = Consumer(consCount, _name, _age, false);
-        emit ConsumerAdded(consCount, _name, _age, false);
+    constructor() public {
+        AddConsumer(0, 'genesis', 0);
     }
 
+    function AddConsumer(uint _aId, string memory _name, uint _age) public {
+        bool proceed = true;
+        for(uint i = 0; i <= consCount; i++) {
+            if(_aId == consumers[i].aId) {
+                proceed = false;
+                break;
+            }
+        }
+        if(proceed) {
+            consCount ++;
+            consumers[consCount] = Consumer(consCount, _aId, _name, _age, false);
+            emit ConsumerAdded(consCount, _aId, _name, _age, false);
+        }
+    }
+
+    // function getCustomer(uint _aId) public {
+    //     uint isPresent = 0;
+    //     for(uint i = 0; i <= consCount; i++) {
+    //         if(_aId == consumers[i].aId) {
+    //             isPresent = i;
+    //             break;
+    //         }
+    //     }
+    // }
+
     event ConsumerVaccinated(
-        uint id,
+        uint aId,
         bool vaccinated
     );
 
     function toggleVaccinated(uint _id) public {
         Consumer memory _consumer = consumers[_id];
-        _consumer.vaccinated = !_consumer.vaccinated;
+        _consumer.vaccinated = true;
         consumers[_id] = _consumer;
-        emit ConsumerVaccinated(_id, _consumer.vaccinated);
+        emit ConsumerVaccinated(_consumer.aId, _consumer.vaccinated);
     }
 }

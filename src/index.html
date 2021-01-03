@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Delivery System</title>
+</head>
+<body>
+
+    <!-- Add Consumer -->
+    <form id='add-consumer' onSubmit="App.addConsumer(); return false;">
+        <input id='name' type='text' required>
+        <input id='unique-id' type='number' required>
+        <input id='age' type='number' required>
+        <button id="add-consumer-submit" type='submit'>submit</button>
+    </form>
+
+    <!-- Add Company -->
+    <form id='add-distributor' onSubmit='App.addDistributor(); return false;'>
+
+    </form>
+
+    <!-- Retrieve Vaccine Data -->
+    <form id='get-vaccine-data' onSubmit='App.getVaccineData(); return false;'>
+
+    </form>
+
+    <!-- Make Vaccinated -->
+    <form id='vaccinated' onSubmit='App.toggleVaccinated(); return false;'>
+        <input id='vaccinated-aId' type="number" required>
+        <button id='vaccinated-submit' type="submit">Submit</button>
+    </form>
+
+    <!-- Success -->
+    <input id='output'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
