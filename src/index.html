@@ -6,35 +6,70 @@
     <title>Vaccine Delivery System</title>
 </head>
 <body>
+    <!-- USER -->
+    <!--  -->
+    <h1>USER ACCESIBLE TOOLS</h1>
 
     <!-- Add Consumer -->
+    <h3>add-consumer</h3>
     <form id='add-consumer' onSubmit="App.addConsumer(); return false;">
-        <input id='name' type='text' required>
-        <input id='unique-id' type='number' required>
-        <input id='age' type='number' required>
+        <input id='consumer-name' type='text' required>
+        <input id='consumer-unique-id' type='number' required>
+        <input id='consumer-age' type='number' required>
         <button id="add-consumer-submit" type='submit'>submit</button>
     </form>
 
-    <!-- Add Company -->
-    <form id='add-distributor' onSubmit='App.addDistributor(); return false;'>
-
+    <!-- Retrieve Vaccine Data -->
+    <h3>get-vaccine-data</h3>
+    <form id='get-vaccine-data' onSubmit='App.getVaccineData(); return false;'>
+        <input id='vaccine-id' type="number" required>
+        <button id='get-vaccine-data-submit' type="submit">Submit</button>
     </form>
 
-    <!-- Retrieve Vaccine Data -->
-    <form id='get-vaccine-data' onSubmit='App.getVaccineData(); return false;'>
+    <!-- DISTRIBUTOR -->
+    <!--  -->
+    <h1>DISTRIBUTOR ACCESIBLE TOOLS</h1>
 
+    <!-- Add Company -->
+    <h3>add-distributor</h3>
+    <form id='add-distributor' onSubmit='App.addDistributor(); return false;'>
+        <input id='distributor-id' type='number' required>
+        <input id='distributor-name' type='text' required>
+        <input id='distributor-vaccine-name' type='text' required>
+        <button id='add-distributor-submit' type="submit">Submit</button>
+    </form>
+
+    <!-- Get Consumer -->
+    <h3>get-consumer</h3>
+    <form id='get-consumer' onSubmit='App.getConsumer(); return false;'>
+        <input id='get-consumer-unique-id' type="number" required>
+        <button id='get-consumer-submit' type="submit">Submit</button>
     </form>
 
     <!-- Make Vaccinated -->
+    <h3>vaccinated</h3>
     <form id='vaccinated' onSubmit='App.toggleVaccinated(); return false;'>
         <input id='vaccinated-aId' type="number" required>
+        <input id='applied-vaccine-id' type="number" required>
         <button id='vaccinated-submit' type="submit">Submit</button>
     </form>
 
-    <!-- Success -->
+    <!-- Add Vaccine -->
+    <h3>Add Vaccine</h3>
+    <form id='add-vaccine' onSubmit='App.addVaccine(); return false;'>
+        <input id='add-vaccine-id' type="number" required>
+        <input id='add-vaccine-name' type="text" required>
+        <input id='add-vaccine-dist-name' type="text" required>
+        <input id='add-vaccine-transporter-code' type="number" required>
+        <button id='add-vaccine-submit' type="submit">Submit</button>
+    </form>
+
+    <!-- OUTPUT -->
+    <h1>OUTPUT</h1>
     <input id='output'>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
     <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
     <script src="app.js"></script>
 </body>
