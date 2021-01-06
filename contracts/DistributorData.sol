@@ -2,16 +2,11 @@ pragma solidity ^0.5.0;
 
 contract DistributorData {
     uint public distCount = 0;
-    bool success = true;
 
     struct Distributor {
         uint id;
         string name;
         string vaccineName;
-    }
-
-    function getStatus() view public returns (bool) {
-        return success;
     }
 
     mapping(uint => Distributor) public distributors;
@@ -21,6 +16,7 @@ contract DistributorData {
     }
 
     event DistributorAdded (
+        uint success,
         uint id,
         string name,
         string vaccineName
@@ -37,10 +33,31 @@ contract DistributorData {
         if(proceed) {
             distCount ++;
             distributors[distCount] = Distributor(_id, _name, _vaccineName);
-            emit DistributorAdded(_id, _name, _vaccineName);
-            success = true;
+            emit DistributorAdded(1, _id, _name, _vaccineName);
         }
         else
-            success = false;
+            emit DistributorAdded(0, 0, '', '');
+    }
+
+    event ThrowDistributorData (
+        uint success,
+        uint id,
+        string name,
+        string vaccineName
+    );
+
+    function GetDistributorData(uint _id) public {
+        bool proceed = false;
+        uint i = 0;
+        for(i = 0; i <= distCount; i++) {
+            if(_id == distributors[i].id) {
+                proceed = true;
+                break;
+            }
+        }
+        if(proceed)
+            emit ThrowDistributorData(1, distributors[i].id, distributors[i].name, distributors[i].vaccineName);
+        else
+            emit ThrowDistributorData(0, 0, '', '');
     }
 }
