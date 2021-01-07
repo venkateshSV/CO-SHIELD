@@ -1,6 +1,6 @@
 # Co-Shield
 
-![Alt text](src/images/Co-Shield.png"")
+![Alt text](src/images/Co-Shield.png?raw=true"")
 
 Co-Shield is a Blockchain-powered software system for smooth and secure distribution of any vaccine at the time of the Global Pandemic.
 
