@@ -14,6 +14,18 @@ contract VaccineData {
         uint consumedBy;
     }
 
+    constructor() public {
+        AddVaccine(0, 'genesis', 'N/A', 'N/A');
+        AddVaccine(1, 'VacSafe', 'Sun Pharmaceutical', 'VacSafeTransporter');
+        AddVaccine(2, 'NoVirus', 'Bharat Biotech', 'NoVirusTransporter');
+        AddVaccine(3, 'CoviShield', 'Serum Institute', 'CoviShieldTransporter');
+        AddVaccine(4, 'GoCorona', 'Zydus Cadila', 'GoCoronaTransporter');
+        AddVaccine(5, 'CoronaGo', 'Panacea Biotec', 'CoronaGoTransporter');
+        AddVaccine(6, 'Covaxin', 'Indian Immunologicals', 'CovaxinTransporter');
+        AddVaccine(7, 'VaxCov', 'Mynvax', 'VaxCovTransporter');
+        AddVaccine(8, 'NoCorona', 'Biological E', 'NoCoronaTransporter');
+    }
+
     mapping(uint => Vaccine) public vaccines;
 
     event IotDataUpdated(

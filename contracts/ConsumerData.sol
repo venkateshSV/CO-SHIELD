@@ -9,12 +9,13 @@ contract ConsumerData {
         uint age;
         bool vaccinated;
         uint vacId;
+        string password;
     }
 
     mapping(uint => Consumer) public consumers;
 
     constructor() public {
-        AddConsumer(0, 'genesis', 0);
+        AddConsumer(0, 'genesis', 0, '');
     }
 
     event ConsumerAdded(
@@ -26,7 +27,7 @@ contract ConsumerData {
         uint vacId
     );
 
-    function AddConsumer(uint _aId, string memory _name, uint _age) public {
+    function AddConsumer(uint _aId, string memory _name, uint _age, string memory _password) public {
         bool proceed = true;
         for(uint i = 0; i <= consCount; i++) {
             if(_aId == consumers[i].aId) {
@@ -36,7 +37,7 @@ contract ConsumerData {
         }
         if(proceed) {
             consCount ++;
-            consumers[consCount] = Consumer(_aId, _name, _age, false, 0);
+            consumers[consCount] = Consumer(_aId, _name, _age, false, 0, _password);
             emit ConsumerAdded(1, _aId, _name, _age, false, 0);
         }
         else
@@ -52,11 +53,11 @@ contract ConsumerData {
         uint vacId
     );
 
-    function GetConsumerData(uint _aId) public {
+    function GetConsumerData(uint _aId, string memory _password) public {
         bool proceed = false;
         uint i = 0;
         for(i = 0; i <= consCount; i++) {
-            if(_aId == consumers[i].aId) {
+            if(_aId == consumers[i].aId && keccak256(abi.encodePacked(_password)) == keccak256(abi.encodePacked(consumers[i].password))) {
                 proceed = true;
                 break;
             }

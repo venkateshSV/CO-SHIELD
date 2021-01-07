@@ -8,7 +8,7 @@ let ContractInstance = new Web3.eth.Contract(Contract.abi, Contract.networks[100
 let confirmPurchase = async (input) => {
     try {
         const accounts = await Web3.eth.getAccounts();
-        const res = await ContractInstance.methods.AddConsumer(input['aId'], input['name'], input['age']).send({
+        const res = await ContractInstance.methods.AddConsumer(input['aId'], input['name'], input['age'], input['password']).send({
             from: accounts[1], gas: 1000000
         })
         console.log(res)

@@ -7,6 +7,7 @@ import AddDistributor from './routes/addDistributor'
 import AddVaccine from './routes/addVaccine'
 import GetConsumer from './routes/getConsumer'
 import GetDistributor from './routes/getDistributor'
+import GetDistributorByIndex from './routes/getDistributorByIndex'
 import GetVaccine from './routes/getVaccine'
 import MakeVaccinated from './routes/makeVaccinated'
 
@@ -21,6 +22,7 @@ app.use(AddDistributor);
 app.use(AddVaccine);
 app.use(GetConsumer);
 app.use(GetDistributor);
+app.use(GetDistributorByIndex);
 app.use(GetVaccine);
 app.use(MakeVaccinated);
 

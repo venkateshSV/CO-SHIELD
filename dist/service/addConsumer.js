@@ -19,7 +19,7 @@ let ContractInstance = new _Web.default.eth.Contract(Contract.abi, Contract.netw
 let confirmPurchase = async input => {
   try {
     const accounts = await _Web.default.eth.getAccounts();
-    const res = await ContractInstance.methods.AddConsumer(input['aId'], input['name'], input['age']).send({
+    const res = await ContractInstance.methods.AddConsumer(input['aId'], input['name'], input['age'], input['password']).send({
       from: accounts[1],
       gas: 1000000
     });
