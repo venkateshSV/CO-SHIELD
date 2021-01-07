@@ -11,6 +11,7 @@ let confirmPurchase = async (input) => {
         const res = await ContractInstance.methods.AddConsumer(input['aId'], input['name'], input['age']).send({
             from: accounts[1], gas: 1000000
         })
+        console.log(res)
 
         return Promise.resolve(res);
     } catch (err) {

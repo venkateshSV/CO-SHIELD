@@ -23,6 +23,7 @@ let confirmPurchase = async input => {
       from: accounts[1],
       gas: 1000000
     });
+    console.log(res);
     return Promise.resolve(res);
   } catch (err) {
     return Promise.reject(err);

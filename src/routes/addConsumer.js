@@ -7,7 +7,7 @@ const router = express.Router({ mergeParams: true });
 router.post('/addconsumer', async (req, res, next) => {
   try {
     const data = await confirmPurchase(req.body);
-
+    console.log(data)
     var jsonData = data["events"]["ConsumerAdded"]["returnValues"]
     delete jsonData[0]
     delete jsonData[1]

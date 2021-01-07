@@ -4929,14 +4929,71 @@
         }
       },
       "links": {},
-      "address": "0x122a7D2fc954f5b7707Faa54f0021a15F73cb426",
-      "transactionHash": "0xc756ab146e0624e34d4508b4ab5b1ebb898255bc08ce5d8f2c88b11e5c2ebbbe"
+      "address": "0x94c7F29a0588F462958c03665EAb3314538525B7",
+      "transactionHash": "0xad7d52f96d4fd7b70c96f4cbab28f3319f873458d9156ac0a3c5072c337fad20"
     },
     "5777": {
-      "events": {},
+      "events": {
+        "0x207679f58e9b1cb9994d050b1560a214c7c2b75b206f512b91bc3429c9dc00e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "success",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "vaccineName",
+              "type": "string"
+            }
+          ],
+          "name": "DistributorAdded",
+          "type": "event",
+          "signature": "0x207679f58e9b1cb9994d050b1560a214c7c2b75b206f512b91bc3429c9dc00e0"
+        },
+        "0xd29cbe826f74ea20d95af48bb0dc6db02d85f7c1f31110c078678a47d9a376c4": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "success",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "vaccineName",
+              "type": "string"
+            }
+          ],
+          "name": "ThrowDistributorData",
+          "type": "event",
+          "signature": "0xd29cbe826f74ea20d95af48bb0dc6db02d85f7c1f31110c078678a47d9a376c4"
+        }
+      },
       "links": {},
-      "address": "0xe791BdE13272051AbE7c3f86a250181C0dD88A15",
-      "transactionHash": "0xc4c3ed3214f700d66094619bed3fbab8895f98cc20c5d49c8333d32e90269303"
+      "address": "0xC2841ED0fc83562E4826a38d52f97f0502552374",
+      "transactionHash": "0xc318c009dcb9d18a05a3031824bda0511b7296225b00d26802ad59cc9ee6c0e7"
     },
     "1609858642747": {
       "events": {},
@@ -4946,7 +5003,7 @@
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2021-01-06T18:56:52.989Z",
+  "updatedAt": "2021-01-07T11:02:27.269Z",
   "devdoc": {
     "methods": {}
   },

@@ -18,6 +18,7 @@ const router = _express.default.Router({
 router.post('/addconsumer', async (req, res, next) => {
   try {
     const data = await (0, _addConsumer.confirmPurchase)(req.body);
+    console.log(data);
     var jsonData = data["events"]["ConsumerAdded"]["returnValues"];
     delete jsonData[0];
     delete jsonData[1];

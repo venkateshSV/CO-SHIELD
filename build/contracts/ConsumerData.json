@@ -8536,8 +8536,8 @@
         }
       },
       "links": {},
-      "address": "0xC9cFe051A2b11Ab697b2d1aF314A070102f03561",
-      "transactionHash": "0x3dee95fb8542ef2cec76881020f359200f019ba8c09a5ec580a94acc4293a1cf"
+      "address": "0x04f1184D98b0A80C39B08becD2947FB10223EAc2",
+      "transactionHash": "0x982a10db1c886ed2613d40fd7f0b6b79e26a101553b586b590b13c8256cf6f15"
     },
     "5777": {
       "events": {
@@ -8597,7 +8597,7 @@
           "inputs": [
             {
               "indexed": false,
-              "name": "id",
+              "name": "success",
               "type": "uint256"
             },
             {
@@ -8652,11 +8652,77 @@
           "name": "ConsumerVaccinated",
           "type": "event",
           "signature": "0xf1bb88fd30023ecf99c3d0aa40d0f76a66f4e8ceef4563b789022e47198813a5"
+        },
+        "0x63727b4100df06971a0421b467545388a29c25775663eac59404d59eb077494d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "success",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "aId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "age",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "vaccinated",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "vacId",
+              "type": "uint256"
+            }
+          ],
+          "name": "ThrowConsumerData",
+          "type": "event",
+          "signature": "0x63727b4100df06971a0421b467545388a29c25775663eac59404d59eb077494d"
+        },
+        "0xf94374ce758f8f3d7a97daefa59d4c1fa52c9a3fbf13690774b762c38bea65a7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "success",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "aId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "vacId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "vaccinated",
+              "type": "bool"
+            }
+          ],
+          "name": "ConsumerVaccinated",
+          "type": "event",
+          "signature": "0xf94374ce758f8f3d7a97daefa59d4c1fa52c9a3fbf13690774b762c38bea65a7"
         }
       },
       "links": {},
-      "address": "0x2b0BCf0E8ED6ABac141Af9Ea31388c90322d114A",
-      "transactionHash": "0xe328cb9c7cd6238fc3c08f1f8b975454d960490a884768f7ece492069a676243"
+      "address": "0x536c58b378a0D8CeaA38A675E71a2f2554bD2a78",
+      "transactionHash": "0x6fda789a1ba5caa1f222c32f4c994d76b1ebdf146109427fe739925f79306a54"
     },
     "1609858642747": {
       "events": {},
@@ -8666,7 +8732,7 @@
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2021-01-06T18:56:52.993Z",
+  "updatedAt": "2021-01-07T11:02:27.275Z",
   "devdoc": {
     "methods": {}
   },
