@@ -10,6 +10,7 @@ import GetDistributor from './routes/getDistributor'
 import GetDistributorByIndex from './routes/getDistributorByIndex'
 import GetVaccine from './routes/getVaccine'
 import MakeVaccinated from './routes/makeVaccinated'
+import UpdateIotData from './routes/updateIotData'
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use(GetDistributor);
 app.use(GetDistributorByIndex);
 app.use(GetVaccine);
 app.use(MakeVaccinated);
+app.use(UpdateIotData);
 
 
 app.use((err, req, res, next) => {

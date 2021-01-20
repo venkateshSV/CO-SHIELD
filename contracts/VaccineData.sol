@@ -12,18 +12,19 @@ contract VaccineData {
         string loc;
         bool consumed;
         uint consumedBy;
+        uint password;
     }
 
     constructor() public {
-        AddVaccine(0, 'genesis', 'N/A', 'N/A');
-        AddVaccine(1, 'VacSafe', 'Sun Pharmaceutical', 'VacSafeTransporter');
-        AddVaccine(2, 'NoVirus', 'Bharat Biotech', 'NoVirusTransporter');
-        AddVaccine(3, 'CoviShield', 'Serum Institute', 'CoviShieldTransporter');
-        AddVaccine(4, 'GoCorona', 'Zydus Cadila', 'GoCoronaTransporter');
-        AddVaccine(5, 'CoronaGo', 'Panacea Biotec', 'CoronaGoTransporter');
-        AddVaccine(6, 'Covaxin', 'Indian Immunologicals', 'CovaxinTransporter');
-        AddVaccine(7, 'VaxCov', 'Mynvax', 'VaxCovTransporter');
-        AddVaccine(8, 'NoCorona', 'Biological E', 'NoCoronaTransporter');
+        AddVaccine(0, 'genesis', 'N/A', 'N/A', 0);
+        AddVaccine(1, 'VacSafe', 'Sun Pharmaceutical', 'VacSafeTransporter', 1);
+        AddVaccine(2, 'NoVirus', 'Bharat Biotech', 'NoVirusTransporter', 1);
+        AddVaccine(3, 'CoviShield', 'Serum Institute', 'CoviShieldTransporter', 1);
+        AddVaccine(4, 'GoCorona', 'Zydus Cadila', 'GoCoronaTransporter', 1);
+        AddVaccine(5, 'CoronaGo', 'Panacea Biotec', 'CoronaGoTransporter', 1);
+        AddVaccine(6, 'Covaxin', 'Indian Immunologicals', 'CovaxinTransporter', 1);
+        AddVaccine(7, 'VaxCov', 'Mynvax', 'VaxCovTransporter', 1);
+        AddVaccine(8, 'NoCorona', 'Biological E', 'NoCoronaTransporter', 1);
     }
 
     mapping(uint => Vaccine) public vaccines;
@@ -35,7 +36,7 @@ contract VaccineData {
         string loc
     );
 
-    function UpdateIotData(uint _id, int _temp, string memory _loc) public {
+    function UpdateIotData(uint _id, int _temp, string memory _loc, uint _password) public {
         bool present = false;
         for(uint i = 1;i<=vaccineCount;i++) {
             if(_id == vaccines[i].id) {
@@ -44,7 +45,7 @@ contract VaccineData {
             }
         }
 
-        if(present) {
+        if(present && _password==vaccines[_id].password) {
             Vaccine memory _vaccine = vaccines[_id];
             _vaccine.temp = _temp;
             _vaccine.loc = _loc;
@@ -63,7 +64,7 @@ contract VaccineData {
         string transporter
     );
 
-    function AddVaccine(uint _id, string memory _vaccineName, string memory _distributorName, string memory _transporter) public {
+    function AddVaccine(uint _id, string memory _vaccineName, string memory _distributorName, string memory _transporter, uint _password) public {
         bool proceed = true;
         for(uint i = 0; i <= vaccineCount; i++) {
             if(_id == vaccines[i].id) {
@@ -74,7 +75,7 @@ contract VaccineData {
         
         if(proceed) {
             vaccineCount ++;
-            vaccines[vaccineCount] = Vaccine(_id, _vaccineName, _distributorName, _transporter, 100, 'N/A', false, 0);
+            vaccines[vaccineCount] = Vaccine(_id, _vaccineName, _distributorName, _transporter, 100, 'N/A', false, 0, _password);
             emit VaccineAdded(1, _id, _vaccineName, _distributorName, _transporter);
         }
         else
@@ -87,7 +88,7 @@ contract VaccineData {
         uint consumedBy
     );
 
-    function ConsumeVaccine(uint _id, uint _aId) public {
+    function ConsumeVaccine(uint _id, uint _aId, uint _password) public {
         bool present = false;
         uint i = 1;
 
@@ -98,7 +99,7 @@ contract VaccineData {
             }
         }
 
-        if(present && !vaccines[i].consumed) {
+        if(present && !vaccines[i].consumed && _password==vaccines[i].password) {
             Vaccine memory _vaccine = vaccines[i];
             _vaccine.consumed = true;
             _vaccine.consumedBy = _aId;

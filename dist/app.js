@@ -22,6 +22,8 @@ var _getVaccine = _interopRequireDefault(require("./routes/getVaccine"));
 
 var _makeVaccinated = _interopRequireDefault(require("./routes/makeVaccinated"));
 
+var _updateIotData = _interopRequireDefault(require("./routes/updateIotData"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = (0, _express.default)();
@@ -43,6 +45,7 @@ app.use(_getDistributor.default);
 app.use(_getDistributorByIndex.default);
 app.use(_getVaccine.default);
 app.use(_makeVaccinated.default);
+app.use(_updateIotData.default);
 app.use((err, req, res, next) => {
   if (res.headersSent) {
     return next(err);
